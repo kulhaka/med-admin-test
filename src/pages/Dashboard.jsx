@@ -60,22 +60,6 @@ export default function Dashboard() {
     });
   };
 
-  const tabArray = [
-    { name: "ตรวจสอบความถูกต้อง" },
-    { name: "พิจารณาเอกสาร" },
-    { name: "ขึ้นทะเบียน" },
-    { name: "ออกเอกสาร" },
-    { name: "แก้ไข" },
-  ];
-
-  const statusColorClasses = {
-    ตรวจสอบ: "bg-indigo-400",
-    พิจารณาเอกสาร: "bg-fuchsia-500",
-    ขึ้นทะเบียน: "bg-emerald-400",
-    ออกเอกสาร: "bg-slate-400",
-    แก้ไข: "bg-rose-400",
-  };
-
   const paginatedData = () => {
     const data = filteredData();
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -89,6 +73,14 @@ export default function Dashboard() {
     setCurrentPage(page);
   };
 
+  const statusColorClasses = {
+    ตรวจสอบ: "bg-indigo-400",
+    พิจารณาเอกสาร: "bg-fuchsia-500",
+    ขึ้นทะเบียน: "bg-emerald-400",
+    ออกเอกสาร: "bg-slate-400",
+    แก้ไข: "bg-rose-400",
+  };
+
   const getStatusClass = (status) => {
     for (const key in statusColorClasses) {
       if (status.includes(key)) {
@@ -97,6 +89,14 @@ export default function Dashboard() {
     }
     return "bg-gray-400";
   };
+
+  const tabArray = [
+    { name: "ตรวจสอบความถูกต้อง" },
+    { name: "พิจารณาเอกสาร" },
+    { name: "ขึ้นทะเบียน" },
+    { name: "ออกเอกสาร" },
+    { name: "แก้ไข" },
+  ];
 
   const handleClickTab = (e) => {
     setActiveTab(e.target.name);
